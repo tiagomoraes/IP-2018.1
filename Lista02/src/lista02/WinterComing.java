@@ -7,11 +7,14 @@ public class WinterComing {
 		Scanner in = new Scanner(System.in);
 		
 		int i, n, f;
+		boolean teste;
 		String o;
+		
 		i = in.nextInt();
 		f = i;
+		teste = true;
 		
-		while(in.hasNext()) {
+		while(in.hasNext() && teste == true) {
 			o = in.next();
 			n = in.nextInt();
 			
@@ -23,7 +26,7 @@ public class WinterComing {
 			
 			if(f < 0) {
 				System.out.println("Winter is here");
-				break;
+				teste = false;
 			} 
 
 		}
