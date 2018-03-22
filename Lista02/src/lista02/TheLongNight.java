@@ -35,6 +35,10 @@ public class TheLongNight {
 					carac = (char) valorCarac;
 					System.out.print(carac);
 				} 
+				
+				if(cont == tamanho-1) {
+					System.out.printf("\n");
+				}
 			}
 		}
 
