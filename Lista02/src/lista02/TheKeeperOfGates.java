@@ -52,6 +52,7 @@ public class TheKeeperOfGates {
 				letra = "" + ((int)carac - 64);
 			} else if(carac == '\n') {
 				letra = "\n";
+				contador = 0;
 			} else if(carac >= 'a' && carac <= 'z') {
 				if(contador % 2 == 0) {
 					letra = String.valueOf((char) (carac - 32));
