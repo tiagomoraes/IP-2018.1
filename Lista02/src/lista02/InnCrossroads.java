@@ -6,10 +6,10 @@ public class InnCrossroads {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		int x, exp, fat, cont, numT, i, digit2;
-		double termo, soma, resultado;
+		int exp, cont, numT, digit2;
+		double x, termo, soma, resultado, i, fat;
 		
-		x = in.nextInt();
+		x = in.nextDouble();
 		numT = in.nextInt() - 1;
 		digit2 = numT + 1;
 		cont = 1;
@@ -41,7 +41,13 @@ public class InnCrossroads {
 				exp+=2;
 				fat = exp + 1;
 			}
-			resultado += Math.abs(x - soma);
+			resultado = Math.abs(x - soma);
+			
+			if(digit2 == 0) {
+				resultado = 0;
+			} 
+			System.out.printf("%.10f\n", resultado);
+			
 			x = in.nextInt();
 			numT = in.nextInt() - 1;
 			digit2 = numT + 1;
@@ -50,8 +56,6 @@ public class InnCrossroads {
 			exp = 2;
 			fat = 3;
 		}
-		System.out.printf("%.10f", resultado);
-
+		
 	}
-
 }
