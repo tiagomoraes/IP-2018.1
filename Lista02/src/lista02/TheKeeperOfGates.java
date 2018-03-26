@@ -6,41 +6,64 @@ public class TheKeeperOfGates {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		String line, invert;
-		int tamanho;
-		char carac, caracF;
+		String line, invert, letra, resultado;
+		int tamanho, contador;
+		char carac;
 		
 		invert = in.nextLine();
+		resultado = "";
+		letra = "";
 		
-		while(in.hasNextLine()) {
+		contador = 0;
+		
+		while(in.hasNext()) {
 			line = in.nextLine();
 			invert = line + "\n" + invert;
 		}
 		
-		for(tamanho = invert.length(); tamanho > 0; tamanho--) {
-			carac = invert.charAt(tamanho - 1);
-			if(carac == 0) {
-				caracF = '*';
-			} else if(carac == 1) {
-				caracF = ')';
-			} else if(carac == 2) {
-				caracF = '$';
-			} else if(carac == 3) {
-				caracF = '!';
-			} else if(carac == 4) {
-				caracF = '+';
-			} else if(carac == 5) {
-				caracF = '@';
-			} else if(carac == 6) {
-				caracF = '-';
-			} else if(carac == 7) {
-				caracF = '/';
-			} else if(carac == 8) {
-				caracF = '(';
-			} else if(carac == 9) {
-				caracF = '%';
+		for(tamanho = 0; tamanho < invert.length(); tamanho++) {
+			carac = invert.charAt(tamanho);
+			if(carac == '*' || carac == ')' || carac == '$' || carac =='!' || carac =='+' || carac == '@' || carac == '-' || carac == '/' || carac == '(' || carac == '%') {
+				letra = "";
+				contador++;
+			} else if(carac == ' ') {
+				letra = "";
+			} else if(carac == '0') {
+				letra = "*";
+			} else if(carac == '1') {
+				letra = ")";
+			} else if(carac == '2') {
+				letra = "$";
+			} else if(carac == '3') {
+				letra = "!";
+			} else if(carac == '4') {
+				letra = "+";
+			} else if(carac == '5') {
+				letra = "@";
+			} else if(carac == '6') {
+				letra = "-";
+			} else if(carac == '7') {
+				letra = "/";
+			} else if(carac == '8') {
+				letra = "(";
+			} else if(carac == '9') {
+				letra = "%";
+			} else if(carac >= 'A' && carac <= 'Z') {
+				letra = "" + ((int)carac - 64);
+			} else if(carac == '\n') {
+				letra = "\n";
+			} else if(carac >= 'a' && carac <= 'z') {
+				if(contador % 2 == 0) {
+					letra = String.valueOf((char) (carac - 32));
+				} else {
+					letra = "" + carac;
+				}
 			}
+			
+			resultado = resultado + letra;
 		}
+		
+		System.out.print(resultado);
 
 	}
 
