@@ -6,40 +6,38 @@ public class TheLongNight {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
-		String linha;
+		String linha, resposta;
 		int tamanho, valorCarac;
 		char carac;
 		
-		while(in.hasNextLine()) {
+		resposta = "";
+		
+		while(in.hasNext()) {
 			linha = in.nextLine();
 			tamanho = linha.length();
 			
 			for(int cont = 0; cont < tamanho; cont++) {
 				carac = linha.charAt(cont);
 				if(carac == ' ') {
-					System.out.print(carac);
 				} else if(carac >= 'A' && carac <= 'T') {
 					valorCarac = carac + 6;
 					carac = (char) valorCarac;
-					System.out.print(carac);
 				} else if(carac > 'T' && carac <= 'Z') {
 					valorCarac = carac - 20;
 					carac = (char) valorCarac;
-					System.out.print(carac);
 				} else if(carac >= 'a' && carac <= 't') {
 					valorCarac = carac + 6;
 					carac = (char) valorCarac;
-					System.out.print(carac);
 				} else if(carac > 't' && carac <= 'z') {
 					valorCarac = carac - 20;
 					carac = (char) valorCarac;
-					System.out.print(carac);
 				} 
 				
-				if(cont == tamanho-1) {
-					System.out.printf("\n");
-				}
+				resposta = resposta + carac;
 			}
+				System.out.println(resposta);
+				resposta = "";
+			
 		}
 
 	}
