@@ -26,13 +26,14 @@ public class QuaseLa {
 				pulo = in.nextInt();
 				pos += pulo;
 				
-				if(pos > pedras - 1) {
-					pos = 0;
+				while(pos < 0 || pos > pedras - 1) {					
+					if(pos > pedras - 1) {
+						pos = 0 + (pos - pedras);
+					}
+					if(pos < 0) {
+						pos = pedras + pos;
+					}
 				}
-				if(pos < 0) {
-					pos = pedras - 1;
-				}
-				
 				
 				moedas += listPedras[pos];
 				listPedras[pos] = 0;
