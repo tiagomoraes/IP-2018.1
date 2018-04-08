@@ -43,6 +43,8 @@ public class TeoriaBrancaNeve {
 			op[i] = termo1;
 			anoes[i] = termo2;
 		}		
+		
+		//Algorítimo para criar os arrays
 
 	}
 
