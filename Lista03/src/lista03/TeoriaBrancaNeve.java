@@ -44,7 +44,8 @@ public class TeoriaBrancaNeve {
 			anoes[i] = termo2;
 		}		
 		
-		//Algorítimo para criar os arrays está funcionando
+		//Algorï¿½timo para criar os arrays estï¿½ funcionando
+		//Array das quantidades com 0
 
 	}
 
