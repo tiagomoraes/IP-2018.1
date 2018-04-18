@@ -58,8 +58,8 @@ public class HanSolo {
 		some = 0;
 		
 		//Checking 2nd diagonal
-		for(int i = l-1; i >= 0; i--) {
-			some+=square[i][i];
+		for(int i = l-1, j = 0; i >= 0 && j < l; i--, j++) {
+			some+=square[i][j];
 		}
 		if(some != someBase) {
 			check = false;
