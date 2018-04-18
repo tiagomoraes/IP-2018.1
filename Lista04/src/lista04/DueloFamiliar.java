@@ -45,9 +45,9 @@ public class DueloFamiliar {
 			//Check luke 2nd diagonal
 			for(int i = 0; i < 3; i++) {
 				for(int j = 2; j >= 0; j--) {
-					if(((i == 0 && j == 2) || (i == 1 && j == 1) || ( i == 2 && j == 0)) && (luke[i][j] != 1)) {						
+					if((i+j == 2) && (luke[i][j] != 1)) {						
 						check2Luke = false;
-					} else if(!((i == 0 && j == 2) || (i == 1 && j == 1) || ( i == 2 && j == 0)) && luke[i][j] != 0) {						
+					} else if((i+j != 2) && luke[i][j] != 0) {						
 						check2Luke = false;
 					}
 					
@@ -68,9 +68,9 @@ public class DueloFamiliar {
 			//Check darth 2nd diagonal
 			for(int i = 0; i < 3; i++) {
 				for(int j = 2; j >= 0; j--) {
-					if(((i == 0 && j == 2) || (i == 1 && j == 1) || ( i == 2 && j == 0)) && darth[i][j] != 1) {						
+					if((i+j == 2) && darth[i][j] != 1) {						
 						check2Darth = false;
-					} else if(!((i == 0 && j == 2) || (i == 1 && j == 1) || ( i == 2 && j == 0)) && darth[i][j] != 0) {						
+					} else if((i+j != 2) && darth[i][j] != 0) {						
 						check2Darth = false;
 					}
 					
