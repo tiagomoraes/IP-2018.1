@@ -16,7 +16,7 @@ public class CuidadoDemogorgon {
 		h24 = convertHr(h, period);
 		chance = func(h24, s);
 		
-		if(s < 0 || h <=0) {
+		if(s < 0 || h <= 0 || h > 12) {
 			System.out.println("Dados Invalidos.");
 		} else if(chance >= 100) {
 			System.out.printf("A chance de aparecimento de Demogorgon e de %.1f", chance);
