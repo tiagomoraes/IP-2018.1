@@ -3,18 +3,17 @@ import java.util.Scanner;
 
 public class Enxuga {
 
-public static int blood = 12;
+	public static double blood = 12;
 	
 	public static void main(String[] args) {
 		
 		Scanner in = new Scanner(System.in);
 		
-		int c, t, p, sangue;
-		c = in.nextInt();
-		t = in.nextInt();
-		if(in.hasNextInt()) {			
-			p = in.nextInt();
-			blood+=12;
+		double c, t, p, sangue;
+		c = in.nextDouble();
+		t = in.nextDouble();
+		if(in.hasNextDouble()) {			
+			p = in.nextDouble();
 		} else {
 			p = t;
 			t = 0;
@@ -25,13 +24,16 @@ public static int blood = 12;
 		if(sangue > 300) {
 			System.out.println("Eleven ficou fraca demais e acabou desmaiando");
 		} else {
-			System.out.println("Eleven perdeu " + sangue +"ml de sangue.");
+			System.out.printf("Eleven perdeu %.0fml de sangue.", sangue);
 		}
 
 	}
 	
-	public static int pell(int c, int t, int p) {
-		if(p < t || blood > 300) {
+	public static double pell(double c, double t, double p) {
+		if(p <= c || blood > 300) {
+			return blood;
+		} else if(p <= t || blood > 300) {
+			blood+=12;
 			return blood;
 		} else {
 			blood += 12;
