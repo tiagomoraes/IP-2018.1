@@ -3,13 +3,22 @@ import java.util.Scanner;
 
 public class Enxuga {
 
+public static int blood = 12;
+	
 	public static void main(String[] args) {
+		
 		Scanner in = new Scanner(System.in);
 		
 		int c, t, p, sangue;
 		c = in.nextInt();
 		t = in.nextInt();
-		p = in.nextInt();
+		if(in.hasNextInt()) {			
+			p = in.nextInt();
+			blood+=12;
+		} else {
+			p = t;
+			t = 0;
+		}
 		
 		sangue = pell(c, t, p);
 		
@@ -22,14 +31,11 @@ public class Enxuga {
 	}
 	
 	public static int pell(int c, int t, int p) {
-		int sangue;
-		sangue = 0;		
-		if(p <= 2*t + c) {
-			sangue += 12;
-			return sangue;
+		if(p < t || blood > 300) {
+			return blood;
 		} else {
-			sangue += 12;
-			return pell(2*t + c, t, p);
+			blood += 12;
+			return pell(t, 2*t + c, p);
 		}
 	}
 
