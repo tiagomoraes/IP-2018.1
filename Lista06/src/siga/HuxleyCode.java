@@ -4,6 +4,9 @@ import java.util.Scanner;
 public class HuxleyCode {
 	
 	public static void main(String[] args) {
+		/*
+		 * Temos que modificar o HuxleyCode para usar lista de alunos e não de matriculas.
+		 */
 		Scanner in = new Scanner(System.in);
 		
 		String entrada, nome, disciplina;
@@ -32,11 +35,11 @@ public class HuxleyCode {
 			entrada = in.nextLine();
 		}
 		
-		a = lista.contador("Algoritmo");
-		s = lista.contador("SD");
-		f = lista.contador("Fisica");
-		l = lista.contador("Logica");
-		e = lista.contador("Estatistica");
+		a = lista.contador("Algoritmo", 0);
+		s = lista.contador("SD", 0);
+		f = lista.contador("Fisica", 0);
+		l = lista.contador("Logica", 0);
+		e = lista.contador("Estatistica", 0);
 		
 		System.out.printf("Estao matriculados na turma de Algoritmo %d aluno(os)\n", a);
 		System.out.printf("Estao matriculados na turma de SD %d aluno(os)\n", s);
@@ -83,4 +86,5 @@ public class HuxleyCode {
 		
 		return disciplina;
 	}
+	
 }
