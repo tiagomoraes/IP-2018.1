@@ -10,25 +10,30 @@ public class ListaAlunos {
 	}
 
 	public void inserir(String aluno) {
+		if (aluno.equals(this.aluno)) {
+			return;
+		}
 		if (this.aluno == null) {
 			this.aluno = aluno;
 			this.proximo = new ListaAlunos();
-		} else {
+		} else if (!this.proximo.hasElement(aluno)){
 			this.proximo.inserir(aluno);
 		}
 	}
 
 	public void remover(String aluno) {
-		if (this.aluno.equals(aluno)) {
-			this.aluno = this.proximo.aluno;
-			this.proximo = this.proximo.proximo;
-		} else if(proximo.hasElement(aluno)) {
-				this.proximo.remover(aluno);				
+		if(this.aluno != null) {			
+			if (this.aluno.equals(aluno)) {
+				this.aluno = this.proximo.aluno;
+				this.proximo = this.proximo.proximo;
+			} else {
+				this.proximo.remover(aluno);
+			}
 		}
 	}
 
 	public boolean hasElement(String aluno) {
-		if (this.aluno.equals(aluno)) {
+		if (aluno.equals(this.aluno)) {
 			return true;
 		} else if (this.proximo != null) {
 			return this.proximo.hasElement(aluno);
@@ -36,12 +41,11 @@ public class ListaAlunos {
 			return false;
 		}
 	}
-	
-	public int contador(String aluno, int soma) {
-		if(this.aluno.equals(aluno)) {
+
+	public int contador(int soma) {
+		if (this.aluno != null) {
 			soma++;
-		} else if(this.aluno != null) {
-			this.proximo.contador(aluno, soma);
+			return this.proximo.contador(soma);
 		}
 		return soma;
 	}

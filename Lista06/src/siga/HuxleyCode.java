@@ -1,8 +1,9 @@
 package siga;
+
 import java.util.Scanner;
 
 public class HuxleyCode {
-	
+
 	public static void main(String[] args) {
 		/*
 		 * Temos que modificar o HuxleyCode para usar lista de alunos e não de matriculas.
@@ -10,36 +11,56 @@ public class HuxleyCode {
 		Scanner in = new Scanner(System.in);
 		
 		String entrada, nome, disciplina;
-		Matricula matricula;
-		ListaMatriculas lista;
+		ListaAlunos listAlg, listSd, listFis, listLog, listEst;
 		int a, s, f, l, e;
 		
-		lista = new ListaMatriculas();
+		listAlg = new ListaAlunos();
+		listSd = new ListaAlunos();
+		listFis = new ListaAlunos();
+		listLog = new ListaAlunos();
+		listEst = new ListaAlunos();
+		
 		entrada = in.nextLine();
 		
 		while(!entrada.equals("")) {
 			nome = separarNome(entrada);
 			disciplina = separarDisciplia(entrada);
-			matricula = new Matricula(nome, disciplina);
-			lista.inserir(matricula);
+			if(disciplina.equals("Algoritmo")) {				
+				listAlg.inserir(nome);
+			} else if(disciplina.equals("SD")) {
+				listSd.inserir(nome);
+			} else if(disciplina.equals("Fisica")) {
+				listFis.inserir(nome);
+			} else if(disciplina.equals("Logica")) {
+				listLog.inserir(nome);
+			} else if (disciplina.equals("Estatistica")) {
+				listEst.inserir(nome);
+			}
 			entrada = in.nextLine();
 		}
-		
-		entrada = in.nextLine();
 		
 		while(in.hasNextLine()) {
+			entrada = in.nextLine();
 			nome = separarNome(entrada);
 			disciplina = separarDisciplia(entrada);
-			matricula = new Matricula(nome, disciplina);
-			lista.remover(matricula);
-			entrada = in.nextLine();
+			if(disciplina.equals("Algoritmo")) {				
+				listAlg.remover(nome);
+			} else if(disciplina.equals("SD")) {
+				listSd.remover(nome);
+			} else if(disciplina.equals("Fisica")) {
+				listFis.remover(nome);
+			} else if(disciplina.equals("Logica")) {
+				listLog.remover(nome);
+			} else if (disciplina.equals("Estatistica")) {
+				listEst.remover(nome);
+			}
 		}
 		
-		a = lista.contador("Algoritmo", 0);
-		s = lista.contador("SD", 0);
-		f = lista.contador("Fisica", 0);
-		l = lista.contador("Logica", 0);
-		e = lista.contador("Estatistica", 0);
+		a = listAlg.contador(0);
+		s = listSd.contador(0);
+		f = listFis.contador(0);
+		l = listLog.contador(0);
+		e = listEst.contador(0);
 		
 		System.out.printf("Estao matriculados na turma de Algoritmo %d aluno(os)\n", a);
 		System.out.printf("Estao matriculados na turma de SD %d aluno(os)\n", s);
@@ -48,43 +69,43 @@ public class HuxleyCode {
 		System.out.printf("Estao matriculados na turma de Estatistica %d aluno(os)\n", e);
 
 	}
-	
+
 	public static String separarNome(String entrada) {
 		boolean divide = false;
 		String nome;
-		
+
 		nome = "";
-		
-		for(int i = 0; i < entrada.length(); i++) {
-			if(entrada.charAt(i) == ' ') {
+
+		for (int i = 0; i < entrada.length(); i++) {
+			if (entrada.charAt(i) == ' ') {
 				divide = true;
 			}
-			
-			if(divide) {				
+
+			if (divide && entrada.charAt(i) != ' ') {
 				nome += entrada.charAt(i);
 			}
 		}
-		
+
 		return nome;
 	}
-	
+
 	public static String separarDisciplia(String entrada) {
 		boolean divide = false;
 		String disciplina;
-		
+
 		disciplina = "";
-		
-		for(int i = 0; i < entrada.length(); i++) {
-			if(entrada.charAt(i) == ' ') {
+
+		for (int i = 0; i < entrada.length(); i++) {
+			if (entrada.charAt(i) == ' ') {
 				divide = true;
 			}
-			
-			if(!divide) {				
+
+			if (!divide) {
 				disciplina += entrada.charAt(i);
 			}
 		}
-		
+
 		return disciplina;
 	}
-	
+
 }
