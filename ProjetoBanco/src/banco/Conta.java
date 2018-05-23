@@ -24,5 +24,9 @@ public class Conta {
 	public void debitar(double valor) {
 		this.saldo -= valor;
 	}
+	
+	public boolean equals(String numero) {
+		return numero.equals(this.numero);
+	}
 
 }
