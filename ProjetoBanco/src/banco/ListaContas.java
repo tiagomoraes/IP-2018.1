@@ -33,7 +33,7 @@ public class ListaContas {
 	
 	public Conta encontrar(String numero) {
 		if(this.conta != null) {
-			if(conta.equals(this.conta)) {
+			if(numero.equals(this.conta.getNumero())) {
 				return this.conta;
 			} else {
 				return this.proximo.encontrar(numero);
