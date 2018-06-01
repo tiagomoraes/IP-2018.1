@@ -19,11 +19,19 @@ public class Lista {
 	}
 	
 	public void subtrair(int valor) {
-		while(this.audacia != null) {
-			this.audacia -= valor;
-			if(this.proximo.audacia != null) {				
-				this.proximo.subtrair(valor);
-			}
+		this.audacia -= valor;
+		if(this.proximo.audacia != null) {				
+			this.proximo.subtrair(valor);
+		}
+	}
+	
+	public int maiorZero() {
+		if(this.audacia == null) {
+			return 0;
+		} else if(audacia > 0){
+			return this.proximo.maiorZero() + 1;
+		} else {
+			return this.proximo.maiorZero();
 		}
 	}
 }
