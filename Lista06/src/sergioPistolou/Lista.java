@@ -17,4 +17,13 @@ public class Lista {
 			this.proximo.inserir(elemento);
 		}
 	}
+	
+	public void subtrair(int valor) {
+		while(this.audacia != null) {
+			this.audacia -= valor;
+			if(this.proximo.audacia != null) {				
+				this.proximo.subtrair(valor);
+			}
+		}
+	}
 }
